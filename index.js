@@ -145,7 +145,7 @@ class Bilibili {
         let searchScript;
         $('script').each((i, elem) => {
           const src = elem.attribs.src;
-          if (!src || !src.includes('search/search.cde')) return;
+          if (!src || !src.includes('search/search')) return;
           searchScript = src.replace(/^\/\//g, 'https://');
         });
         if (!searchScript) return;
