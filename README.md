@@ -164,6 +164,8 @@ const video = await Bilibili.getVideo({id, bvid, cid, aid, page, instance});
     pages: Array<VideoPage>
     // url to the flash video
     playUrl: String
+    // dash info for video
+    playInfo: Object
 }
 ```
 

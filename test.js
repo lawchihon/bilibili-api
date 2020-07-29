@@ -28,7 +28,6 @@ describe('bilibili', function() {
     it('before login is not adult', function(){
       return Bilibili.getVideos({keyword: '地獄廚房'})
         .then(videos => {
-          // console.log(videos);
           assert(videos.length > 0);
         })
         .catch(jh.handleTestError);
@@ -141,6 +140,7 @@ describe('bilibili', function() {
         .then(video => {
           assert(video.bvid, bvid);
           assert(video.cid, cid);
+          assert(!!video.playInfo);
           assert(!!video.playUrl);
           assert(video.pages.length === 237);
         })
@@ -153,6 +153,7 @@ describe('bilibili', function() {
         .then(video => {
           assert(video.bvid, bvid);
           assert(!!video.cid);
+          assert(!!video.playInfo);
           assert(!!video.playUrl);
           assert(video.pages.length === 237);
         })
@@ -174,6 +175,7 @@ describe('bilibili', function() {
         .then(video => {
           assert(video.aid, aid);
           assert(video.cid, cid);
+          assert(!!video.playInfo);
           assert(!!video.playUrl);
           assert(video.pages.length === 237);
         })
@@ -186,6 +188,7 @@ describe('bilibili', function() {
         .then(video => {
           assert(video.aid, aid);
           assert(!!video.cid);
+          assert(!!video.playInfo);
           assert(!!video.playUrl);
           assert(video.pages.length === 237);
         })
@@ -216,6 +219,7 @@ describe('bilibili', function() {
       return Bilibili.getVideo({id})
         .then(video => {
           assert(video.id, id);
+          assert(!!video.playInfo);
           assert(!!video.playUrl);
           assert(video.pages.length === 237);
         })
@@ -226,6 +230,7 @@ describe('bilibili', function() {
       return Bilibili.getVideo({id})
         .then(video => {
           assert(video.id, id);
+          assert(!!video.playInfo);
           assert(!!video.playUrl);
           assert(video.pages.length === 237);
         })

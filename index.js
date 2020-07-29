@@ -81,7 +81,9 @@ const getVideoData = ({id, aid, bvid, instance}) => {
   return (instance || bilibiliInstance)(options)
     .then(response => {
       const initialState = JSON.parse(response.data.extractBetween('window.__INITIAL_STATE__=', ';(func'));
-      return _.assign(initialState.videoData, {tags: initialState.tags});
+      const playInfo = JSON.parse(response.data.extractBetween('window.__playinfo__=', '</script>'));
+
+      return _.assign(initialState.videoData, {playInfo, tags: initialState.tags});
     });
   // Note: the following is using the view api, but it doesnt have tags info
   // const options = {
@@ -282,6 +284,7 @@ class Bilibili {
           video.title = matchPage.title;
           video.cid = matchPage.cid;
           try {
+            video.playInfo = videoData.playInfo;
             video.playUrl = await Bilibili.getPlayUrl({id, bvid: video.bvid, cid: video.cid, instance});
           } catch(err) {
             console.warn('Failed to get play url');
