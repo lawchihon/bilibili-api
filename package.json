@@ -23,13 +23,13 @@
   "license": "MIT",
   "peerDependencies": {
     "@johman/helper": "^0.0.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "cheerio": "^1.0.0-rc.2",
     "lodash": "^4.17.11"
   },
   "devDependencies": {
     "@johman/helper": "^0.0.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "cheerio": "^1.0.0-rc.2",
     "lodash": "^4.17.11",
     "mocha": "^7.1.2"
